@@ -466,12 +466,7 @@ jobs:
           sudo swapon /swapfile
           swapon --show
           free -h
-          sudo modprobe zram
-          sudo bash -c "echo 8G > /sys/block/zram0/disksize"
-          sudo mkswap "/dev/zram0"
-          sudo swapon "/dev/zram0"
-          swapon --show
-          free -h
+          df -h
       - name: clean up
         run: python3 $GITHUB_WORKSPACE/scripts/xiangshan.py --clean
       - name: generate standalone devices for AXI4
