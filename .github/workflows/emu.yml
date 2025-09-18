@@ -460,7 +460,7 @@ jobs:
         run: |
           swapon --show
           free -h
-          sudo fallocate -l 10G /swapfile
+          sudo fallocate -l 16G /swapfile
           sudo chmod 600 /swapfile
           sudo mkswap /swapfile
           sudo swapon /swapfile
