@@ -578,5 +578,5 @@ jobs:
   #     - run: |
   #         mkdir -p ~/.local/bin
   #         sh -c "curl -L https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/1.0.4/mill-dist-1.0.4-mill.sh -o ~/.local/bin/mill && chmod +x ~/.local/bin/mill"
-          export PATH=~/.local/bin:$PATH
-      - run: make check-format
+  #         export PATH=~/.local/bin:$PATH
+  #     - run: make check-format
