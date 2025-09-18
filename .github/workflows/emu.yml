@@ -456,15 +456,19 @@ jobs:
           mkdir -p ~/.local/bin
           sh -c "curl -L https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/1.0.4/mill-dist-1.0.4-mill.sh -o ~/.local/bin/mill && chmod +x ~/.local/bin/mill"
           export PATH=~/.local/bin:$PATH
+      - name: Clean unused toolchains
+        run: |
+          # https://github.com/actions/virtual-environments/issues/709
+          sudo rm -rf "/opt/ghc" || true
+          sudo rm -rf "/usr/share/dotnet" || true
+          sudo rm -rf "/usr/local/lib/android" || true
+          sudo rm -rf "/usr/local/share/boost" || true
       - name: swapfile
         run: |
-          swapon --show
-          free -h
           sudo fallocate -l 16G /swapfile
           sudo chmod 600 /swapfile
           sudo mkswap /swapfile
           sudo swapon /swapfile
-          swapon --show
           free -h
           df -h
       - name: clean up
